@@ -6,6 +6,8 @@
  * By Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
  */
+
+
 Module.register("compliments", {
 
 	// Module config defaults.
@@ -36,7 +38,8 @@ Module.register("compliments", {
 		morningStartTime: 3,
 		morningEndTime: 12,
 		afternoonStartTime: 12,
-		afternoonEndTime: 17
+		afternoonEndTime: 17,
+        hideFlag: true
 	},
 
 	// Set currentweather from module
@@ -61,10 +64,13 @@ Module.register("compliments", {
 			});
 		}
 
+
 		// Schedule update timer.
+        /*
 		setInterval(function() {
 			self.updateDom(self.config.fadeSpeed);
 		}, this.config.updateInterval);
+        */
 	},
 
 	/* randomIndex(compliments)
@@ -155,6 +161,11 @@ Module.register("compliments", {
 
 	// Override dom generator.
 	getDom: function() {
+
+        if (this.config.hideFlag) {
+            this.hide();
+		}
+
 		var complimentText = this.randomCompliment();
 
 		var compliment = document.createTextNode(complimentText);
@@ -196,7 +207,19 @@ Module.register("compliments", {
 	notificationReceived: function(notification, payload, sender) {
 		if (notification == "CURRENTWEATHER_DATA") {
 			this.setCurrentWeatherType(payload.data);
-		}
+		} else if (notification == "SHOW_COMPLIMENTS") {
+            Log.info('compliments received show compliments');
+
+            if (payload == true ) {
+                Log.info('compliments received show compliments true');
+                this.config.hideFlag = false;
+                this.show(1500);
+            } else {
+                Log.info('compliments received show compliments true');
+                this.config.hideFlag = true;
+                this.hide(1500);            
+            }
+		} 
 	},
 
 });

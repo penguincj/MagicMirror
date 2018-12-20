@@ -30,7 +30,7 @@ Module.register("currentweather",{
 		degreeLabel: false,
 		showIndoorTemperature: false,
 		showIndoorHumidity: false,
-		showFeelsLike: true,
+		showFeelsLike: false,
 
 		initialLoadDelay: 0, // 0 seconds delay
 		retryDelay: 2500,
