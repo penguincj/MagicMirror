@@ -27,7 +27,7 @@ Module.register("newsfeed",{
 		lengthDescription: 400,
 		hideLoading: false,
 		reloadInterval: 5 * 60 * 1000, // every 5 minutes
-		updateInterval: 10 * 1000,
+		updateInterval: 5 * 1000,
 		animationSpeed: 2.5 * 1000,
 		maxNewsItems: 0, // 0 for unlimited
 		ignoreOldItems: false,
@@ -38,6 +38,7 @@ Module.register("newsfeed",{
 		endTags: [],
 		prohibitedWords: [],
 		scrollLength: 500,
+        hideFlag: false,
 		logFeedWarnings: false
 	},
 
@@ -86,6 +87,12 @@ Module.register("newsfeed",{
 
 	// Override dom generator.
 	getDom: function() {
+        if (this.config.hideFlag) {
+            this.hide();
+            var wrapper1 = document.createElement("div");
+            return wrapper1;
+		}
+
 		var wrapper = document.createElement("div");
 
 		if (this.config.feedUrl) {
@@ -105,9 +112,12 @@ Module.register("newsfeed",{
 				var sourceAndTimestamp = document.createElement("div");
 				sourceAndTimestamp.className = "light small dimmed";
 
+                /*
 				if (this.config.showSourceTitle && this.newsItems[this.activeItem].sourceTitle !== "") {
 					sourceAndTimestamp.innerHTML = this.newsItems[this.activeItem].sourceTitle;
 				}
+                */
+                sourceAndTimestamp.innerHTML = "知乎日报";
 				if (this.config.showSourceTitle && this.newsItems[this.activeItem].sourceTitle !== "" && this.config.showPublishDate) {
 					sourceAndTimestamp.innerHTML += ", ";
 				}
@@ -387,6 +397,14 @@ Module.register("newsfeed",{
 			} else {
 				this.showFullArticle();
 			}
+		} else if (notification == "SHOW_MY_ZHIHU") {
+            if (payload == true ) {
+                Log.info('my weather received show true');
+                this.config.hideFlag = false;
+            } else {
+                Log.info('2 clock received show clock false');
+                this.config.hideFlag = true;
+            }
 		} else {
 			Log.info(this.name + " - unknown notification, ignoring: " + notification);
 		}

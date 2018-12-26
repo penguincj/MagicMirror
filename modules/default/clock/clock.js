@@ -39,8 +39,12 @@ Module.register("clock",{
 	start: function() {
 		Log.info("Starting module: " + this.name);
 
+
 		// Schedule update interval.
 		var self = this;
+
+        this.hideFlag = false;
+
 		setInterval(function() {
 			self.updateDom();
 		}, 1000);
@@ -51,6 +55,12 @@ Module.register("clock",{
 	},
 	// Override dom generator.
 	getDom: function() {
+
+        if (this.hideFlag) {
+            this.hide();
+            var wrapper1 = document.createElement("div");
+            return wrapper1;
+		}
 
 		var wrapper = document.createElement("div");
 
@@ -241,5 +251,19 @@ Module.register("clock",{
 
 		// Return the wrapper to the dom.
 		return wrapper;
-	}
+	},
+    
+    // Override notification handler.
+	notificationReceived: function(notification, payload, sender) {
+		if (notification == "SHOW_CLOCK") {
+            if (payload == true ) {
+                Log.info(' clock received show  clock true');
+                this.hideFlag = false;
+            } else {
+                Log.info(' clock received show  clock false');
+                this.hideFlag = true;
+            }
+		}
+	},
+
 });
