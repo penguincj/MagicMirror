@@ -84,11 +84,12 @@ var config = {
 			position: "top_right",
 			header: "Weather Forecast",
 			config: {
-                location: "����",
+                location: "北京",
 				locationID: "CN101010100", 
 				appid: "fa3f75cce8ce4abfa5fda54449bc7c30"
 			}
 		},
+        /*
         {
             module: "MMM-LocalTemperature",
             position: "top_left", // Only add a position if you want this module to display the data
@@ -98,6 +99,39 @@ var config = {
                 // See below for more Configuration Options
             }
         },
+        */
+        {
+            module: 'MMM-CountDown',
+            position: "middle_center",
+            config: {
+                event: "二零一九 倒计时",
+                date: "2019-01-01 16:08:00",
+                showHours: true,
+                showMinutes: true,
+                showSeconds: true,
+                secondsLabel: 's'		
+                // See configuration options
+            }
+        },
+        /*
+        {
+          module: "my-year",
+          config: {
+                event: "二零一九 倒计时",
+                date: "2019-01-01 15:53:00"
+          }
+        },
+        */
+        {
+            module: 'MMM-Snow',
+            position: 'fullscreen_above',
+            config: { // See 'Configuration options' for more information.
+                flakeCount: 100,
+                //theme: "love"
+                theme: "winter"
+            }
+        },
+        /*
         {
           module: "MMM-News",
           position: "lower_third",
@@ -120,13 +154,14 @@ var config = {
             ],
           }
         },
+        */
    		{
 			module: "newsfeed",
 			position: "bottom_bar",
 			config: {
 				feeds: [
 					{
-						title: "֪��",
+						title: "知乎",
                         url: "https://www.zhihu.com/rss",
 						//url: "http://feeds.feedburner.com/zhihu-daily",
                         encoding: "UTF-8" //ISO-8859-1
