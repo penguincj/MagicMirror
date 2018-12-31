@@ -38,7 +38,7 @@ Module.register("my-weatherforecast",{
 		calendarClass: "calendar",
 		tableClass: "small",
 
-        hideFlang: false,
+        hideFlang: true,
 
 		roundTemp: false,
 

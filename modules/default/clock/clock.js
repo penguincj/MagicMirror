@@ -43,7 +43,7 @@ Module.register("clock",{
 		// Schedule update interval.
 		var self = this;
 
-        this.hideFlag = false;
+        this.hideFlag = true;
 
 		setInterval(function() {
 			self.updateDom();

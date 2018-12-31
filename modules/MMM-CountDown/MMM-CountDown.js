@@ -26,38 +26,23 @@ Module.register("MMM-CountDown",{
 	start: function() {
 		var self = this;
         this.hideFlag = false;
+        this.timeOver = false;
+        this.countTimes = 0;
 
 		setInterval(function() {
 			self.updateDom(); // no speed defined, so it updates instantly.
 		}, this.config.customInterval); 
 	},
          
-    _hideTargetModules(name) {
-        const targetModules = this._getTargetModules(name);
-        for (let i = 0; i < targetModules.length; i++) {
-            const targetModule = targetModules[i];
-            Log.info('hide clock 11111111');
-            targetModule.hide(0);
-        }
-    },
- 
-    _showTargetModules(name) {
-        const targetModules = this._getTargetModules(name);
-        for (let i = 0; i < targetModules.length; i++) {
-            const targetModule = targetModules[i];
-            targetModule.show(1000);
-        }
-    },   
-
 	// Update function
 	getDom: function() {
-        /*
-       if (this.hideFlag) {
-           this.hide(0);
-           var wrapper1 = document.createElement("div");
-           return wrapper1;
-       }
-       */
+ 
+        if (this.hideFlag) {
+            this.hide();
+            var wrapper1 = document.createElement("div");
+            return wrapper1;
+		}
+ 
 		var wrapper = document.createElement("div");
 
 		var timeWrapper = document.createElement("div");
@@ -91,14 +76,40 @@ Module.register("MMM-CountDown",{
 
 		timeWrapper.innerHTML = days + hrs + mins + secs;
 
-       if (this.hideFlag || diffHours == 0 && diffMinutes == 0 && diffSeconds == 0) {
-	       textWrapper.innerHTML="2019";
-           timeWrapper.innerHTML = "新年快乐";
-           this.hideFlag = true;
+       if (this.timeOver || diffHours == 0 && diffMinutes == 0 ) {
+           if (diffSeconds == 0) {
+                Log.info('time over');
+                this.timeOver = true;
+            }
+           if (this.timeOver) {
+               if (this.countTimes < 2) {
+                Log.info('time count');
+                   this.countTimes++;
+                   textWrapper.innerHTML="2019";
+                   timeWrapper.innerHTML = "新年快乐";
+
+               } else {
+                   textWrapper.innerHTML="2019";
+                   timeWrapper.innerHTML = "新年快乐";
+                Log.info('time hide');
+                    this.hideFlag = true;
+                    this.hide(0);
+               }
+           }
+           /*
+          if (diffSeconds <= 3 && diffSeconds != 0) {
+               textWrapper.innerHTML="2019";
+               timeWrapper.innerHTML = "新年快乐";
+           } else if (diffSeconds == 0) {
+               textWrapper.innerHTML="2019";
+               timeWrapper.innerHTML = "新年快乐";
+               this.hideFlag = true;
+           }
+           */
        }
 
-		wrapper.appendChild(textWrapper);
-		wrapper.appendChild(timeWrapper);
+	   wrapper.appendChild(textWrapper);
+	   wrapper.appendChild(timeWrapper);
 
         /*
            if (diffHours == 0 && diffMinutes == 0) {

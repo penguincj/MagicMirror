@@ -100,19 +100,6 @@ var config = {
             }
         },
         */
-        {
-            module: 'MMM-CountDown',
-            position: "middle_center",
-            config: {
-                event: "二零一九 倒计时",
-                date: "2019-01-01 16:08:00",
-                showHours: true,
-                showMinutes: true,
-                showSeconds: true,
-                secondsLabel: 's'		
-                // See configuration options
-            }
-        },
         /*
         {
           module: "my-year",
@@ -154,7 +141,6 @@ var config = {
             ],
           }
         },
-        */
    		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -171,6 +157,7 @@ var config = {
 				showPublishDate: true
 			}
 		},
+        */
         /*
         {
             module: 'MMM-Heart',
@@ -225,6 +212,7 @@ var config = {
                 imagePaths: ['modules/MMM-Season/exampleImages']
             }
         },
+        */
         {
             module: 'my-season',
             position: 'middle_center',
@@ -232,6 +220,7 @@ var config = {
                 imagePaths: ['modules/my-season/exampleImages']
             }
         },
+        /*
         {
             module: 'MMM-Zhihu',
             position: 'bottom_right',
@@ -286,11 +275,26 @@ var config = {
 			position: "upper_third"
 		}
         */
-        /*
         {
-          module: "my-love",
+            module: 'MMM-CountDown',
+            position: "middle_center",
+            config: {
+                event: "二零一九 倒计时",
+                date: "2019-01-01 18:36:00",
+                showDays: true,
+                showHours: true,
+                showMinutes: true,
+                showSeconds: true,
+                secondsLabel: 's'		
+                // See configuration options
+            }
+        },
+        {
+          module: "my-love1",
+            config: {
+                date: "2019-01-01 18:36:02"
+            }
         }
-        */
 	]
 };
 

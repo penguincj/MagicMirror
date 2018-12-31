@@ -38,6 +38,7 @@ Module.register("my-season", {
         validImageFileExtensions: 'bmp,jpg,gif,png',
 		// a delay timer after all images have been shown, to wait to restart (in ms)
 		delayUntilRestart: 0,
+        hideFlang: true,
 	},
     // load function
 	start: function () {
@@ -94,8 +95,23 @@ Module.register("my-season", {
 			}
 		}
     },    
+    notificationReceived: function(notification, payload, sender) {
+		if (notification == "SHOW_MY_SEASON") {
+            if (payload == true ) {
+                Log.info('my_weatherforcast received show true');
+                this.config.hideFlang = false;
+                this.updateDom(this.config.animationSpeed);
+            }
+        }
+	}, 
 	// Override dom generator.
 	getDom: function () {
+        if (this.config.hideFlang) {
+            this.hide();
+            var wrapper1 = document.createElement("div");
+            return wrapper1;
+		}
+
 		var wrapper = document.createElement("div");
         // if an error, say so (currently no errors can occur)
         if (this.errorMessage != null) {

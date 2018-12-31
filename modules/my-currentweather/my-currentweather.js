@@ -45,7 +45,7 @@ Module.register("my-currentweather",{
 		onlyTemp: false,
 		roundTemp: false,
 
-        hideFlag: false,
+        hideFlag: true,
 
         iconTable: {
 			"100": "wi-day-sunny",
