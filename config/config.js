@@ -113,7 +113,7 @@ var config = {
             module: 'MMM-Snow',
             position: 'fullscreen_above',
             config: { // See 'Configuration options' for more information.
-                flakeCount: 100,
+                flakeCount: 20,
                 //theme: "love"
                 theme: "winter"
             }
@@ -215,7 +215,8 @@ var config = {
         */
         {
             module: 'my-season',
-            position: 'middle_center',
+            position: "lower_third",
+            //position: 'middle_center',
             config: {
                 imagePaths: ['modules/my-season/exampleImages']
             }
@@ -280,19 +281,19 @@ var config = {
             position: "middle_center",
             config: {
                 event: "二零一九 倒计时",
-                date: "2019-01-01 18:36:00",
-                showDays: true,
-                showHours: true,
-                showMinutes: true,
+                date: "2019-01-01 00:00:00",
+                showDays: false,
+                showHours: false,
+                showMinutes: false,
                 showSeconds: true,
-                secondsLabel: 's'		
+                secondsLabel: ''		
                 // See configuration options
             }
         },
         {
           module: "my-love1",
             config: {
-                date: "2019-01-01 18:36:02"
+                date: "2019-01-01 00:00:00"
             }
         }
 	]

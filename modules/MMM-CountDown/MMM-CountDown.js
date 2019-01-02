@@ -76,14 +76,12 @@ Module.register("MMM-CountDown",{
 
 		timeWrapper.innerHTML = days + hrs + mins + secs;
 
-       if (this.timeOver || diffHours == 0 && diffMinutes == 0 ) {
-           if (diffSeconds == 0) {
-                Log.info('time over');
+       if (this.timeOver || diffHours == 23 || (diffHours == 0 && diffMinutes == 0)) {
+           if (diffSeconds == 0 || diffHours == 23) {
                 this.timeOver = true;
             }
            if (this.timeOver) {
-               if (this.countTimes < 2) {
-                Log.info('time count');
+               if (this.countTimes < 1) {
                    this.countTimes++;
                    textWrapper.innerHTML="2019";
                    timeWrapper.innerHTML = "新年快乐";
@@ -91,7 +89,6 @@ Module.register("MMM-CountDown",{
                } else {
                    textWrapper.innerHTML="2019";
                    timeWrapper.innerHTML = "新年快乐";
-                Log.info('time hide');
                     this.hideFlag = true;
                     this.hide(0);
                }

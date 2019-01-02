@@ -12,7 +12,7 @@
 Module.register("MMM-Snow",{
 
 	defaults: {
-		flakeCount: 100,
+		flakeCount: 10,
 		theme: "winter"                 // pick from themes map below, i.e. winter, love
 	},
 

@@ -42,7 +42,7 @@ Module.register("my-love1",{
         var diffMinutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
 		var diffSeconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-     if (diffHours == 0 && diffMinutes == 0 && diffSeconds == 0) {
+     if (diffHours == 23 || (diffHours == 0 && diffMinutes == 0 && diffSeconds == 0)) {
             this._showTargetModules("clock");
             this.sendNotification('SHOW_CLOCK', true);
             this._showTargetModules("my-currentweather");

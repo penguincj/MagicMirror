@@ -395,7 +395,6 @@ Module.register("my-currentweather",{
 	 */
 	processWeather: function(data) {
 
-		Log.info('cj 0 :', data);
 		if (!data || !data.HeWeather6|| typeof data.HeWeather6[0].now === "undefined") {
 			// Did not receive usable new data.
 			// Maybe this needs a better check?
@@ -406,7 +405,6 @@ Module.register("my-currentweather",{
 
         this.now = weather_data.now;
 
-		Log.info('cj :', this.now);
 
 		this.humidity = parseFloat(data.HeWeather6.humidity);
 		this.temperature = this.roundValue(this.now.tmp);
