@@ -34,7 +34,7 @@ Module.register("MMM-News", {
 
     // You might not need modify belows;
     endpoint :  "https://newsapi.org/v2/top-headlines",
-    scanInterval: 1000*60*10, // This will be automatically recalculated by number of queries to avoid query quota limit. This could be minimum interval.
+    scanInterval: 1000*60*3, // This will be automatically recalculated by number of queries to avoid query quota limit. This could be minimum interval.
     templateFile: "template.html",
 
     notifications: {

@@ -35,7 +35,7 @@ Module.register("MMM-LocalTemperature", {
 		initialLoadDelay: 0, // Seconds, minimum 0
 		animationSpeed: 0, // Milliseconds, minimum 0
 		retryDelay: 10, // Seconds, minimum 10
-		updateInterval: 5, // Minutes, minimum 0.5
+		updateInterval: 1, // Minutes, minimum 0.5
 		developerMode: false
 	},
 	

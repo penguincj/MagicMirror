@@ -26,12 +26,12 @@ Module.register("newsfeed",{
 		truncDescription: true,
 		lengthDescription: 400,
 		hideLoading: false,
-		reloadInterval: 5 * 60 * 1000, // every 5 minutes
+		reloadInterval: 1 * 60 * 1000, // every 5 minutes
 		updateInterval: 5 * 1000,
 		animationSpeed: 2.5 * 1000,
 		maxNewsItems: 0, // 0 for unlimited
 		ignoreOldItems: false,
-		ignoreOlderThan: 24 * 60 * 60 * 1000, // 1 day
+		ignoreOlderThan: 10 * 60 * 1000, // 1 day
 		removeStartTags: "",
 		removeEndTags: "",
 		startTags: [],
