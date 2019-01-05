@@ -76,6 +76,7 @@ var config = {
 			config: {
 				location: "beijing",
 				locationID: "CN101010100", 
+                hideFlag: false,
 				appid: "fa3f75cce8ce4abfa5fda54449bc7c30"
 			}
 		},
@@ -86,10 +87,10 @@ var config = {
 			config: {
                 location: "北京",
 				locationID: "CN101010100", 
+                hideFlang: false,
 				appid: "fa3f75cce8ce4abfa5fda54449bc7c30"
 			}
 		},
-        /*
         {
             module: "MMM-LocalTemperature",
             position: "top_left", // Only add a position if you want this module to display the data
@@ -99,7 +100,6 @@ var config = {
                 // See below for more Configuration Options
             }
         },
-        */
         /*
         {
           module: "my-year",
@@ -113,12 +113,11 @@ var config = {
             module: 'MMM-Snow',
             position: 'fullscreen_above',
             config: { // See 'Configuration options' for more information.
-                flakeCount: 20,
+                flakeCount: 10,
                 //theme: "love"
                 theme: "winter"
             }
         },
-        /*
         {
           module: "MMM-News",
           position: "lower_third",
@@ -130,10 +129,12 @@ var config = {
                 sources: "xinhua-net",
                 className: "redTitle",
               },
+                /*
               {
                 country: "cn",
                 className: "redTitle",
               },
+              */
               {
                 country: "fr",
                 className: "redTitle",
@@ -157,7 +158,6 @@ var config = {
 				showPublishDate: true
 			}
 		},
-        */
         /*
         {
             module: 'MMM-Heart',
@@ -212,7 +212,6 @@ var config = {
                 imagePaths: ['modules/MMM-Season/exampleImages']
             }
         },
-        */
         {
             module: 'my-season',
             position: "lower_third",
@@ -221,6 +220,7 @@ var config = {
                 imagePaths: ['modules/my-season/exampleImages']
             }
         },
+        */
         /*
         {
             module: 'MMM-Zhihu',
@@ -275,7 +275,6 @@ var config = {
 			module: "my-chris-show",
 			position: "upper_third"
 		}
-        */
         {
             module: 'MMM-CountDown',
             position: "middle_center",
@@ -296,6 +295,7 @@ var config = {
                 date: "2019-01-01 00:00:00"
             }
         }
+        */
 	]
 };
 
