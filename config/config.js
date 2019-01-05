@@ -129,12 +129,10 @@ var config = {
                 sources: "xinhua-net",
                 className: "redTitle",
               },
-                /*
               {
                 country: "cn",
                 className: "redTitle",
               },
-              */
               {
                 country: "fr",
                 className: "redTitle",
